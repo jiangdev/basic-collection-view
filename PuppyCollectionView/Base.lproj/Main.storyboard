@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rIA-Bd-hyw">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="rap-OF-yCF">
+            <objects>
+                <navigationController id="rIA-Bd-hyw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sIJ-wn-KTb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="36m-ux-eby"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7xQ-kH-lgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1199" y="459"/>
+        </scene>
+        <!--Puppy Collection View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PuppyCollectionViewController" customModule="MyPictureCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="k8f-f1-jAO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vQF-1e-XHH">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Photo Cell" id="EP6-y4-mdK" customClass="PuppyCollectionViewCell" customModule="MyPictureCollectionView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cQ0-KC-mY2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="cQ0-KC-mY2" firstAttribute="leading" secondItem="EP6-y4-mdK" secondAttribute="leading" id="034-RP-9JX"/>
+                                            <constraint firstItem="cQ0-KC-mY2" firstAttribute="top" secondItem="EP6-y4-mdK" secondAttribute="top" id="8Vw-2b-hsv"/>
+                                            <constraint firstAttribute="bottom" secondItem="cQ0-KC-mY2" secondAttribute="bottom" id="Jm8-b7-b8x"/>
+                                            <constraint firstAttribute="trailing" secondItem="cQ0-KC-mY2" secondAttribute="trailing" id="bIO-Ea-eje"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="myImageView" destination="cQ0-KC-mY2" id="Bog-6i-9fN"/>
+                                            <segue destination="ngi-br-LJQ" kind="show" identifier="Puppy Segue" id="Jno-d9-BSv"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="WEw-3C-cI9"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PqJ-T7-ZVv"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BOr-Ln-Gcj"/>
+                    <connections>
+                        <outlet property="collectionView" destination="k8f-f1-jAO" id="udg-K6-YTo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="464"/>
+        </scene>
+        <!--Puppy View Controller-->
+        <scene sceneID="1tY-14-nkU">
+            <objects>
+                <viewController id="ngi-br-LJQ" customClass="PuppyViewController" customModule="MyPictureCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="90J-Zo-lLo"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dpq-GG-jHO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TnR-7P-qts">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MFC-e3-ovh">
+                                <rect key="frame" x="0.0" y="64" width="600" height="244"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgz-9o-CpF">
+                                <rect key="frame" x="20" y="328" width="560" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="SN3-gl-Hq1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ep1-z2-Rui">
+                                <rect key="frame" x="20" y="385" width="560" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="tX6-vM-Ut5"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mgz-9o-CpF" firstAttribute="trailing" secondItem="ep1-z2-Rui" secondAttribute="trailing" id="EHN-yd-dIO"/>
+                            <constraint firstItem="ep1-z2-Rui" firstAttribute="top" secondItem="Mgz-9o-CpF" secondAttribute="bottom" constant="8" symbolic="YES" id="FOl-st-wMW"/>
+                            <constraint firstItem="Mgz-9o-CpF" firstAttribute="leading" secondItem="ep1-z2-Rui" secondAttribute="leading" id="HSl-iA-JRj"/>
+                            <constraint firstItem="Mgz-9o-CpF" firstAttribute="leading" secondItem="TnR-7P-qts" secondAttribute="leadingMargin" id="Ibo-xh-qtx"/>
+                            <constraint firstAttribute="trailing" secondItem="MFC-e3-ovh" secondAttribute="trailing" id="KEd-gu-QT4"/>
+                            <constraint firstItem="Mgz-9o-CpF" firstAttribute="top" secondItem="MFC-e3-ovh" secondAttribute="bottom" constant="20" id="Q5b-XG-O0V"/>
+                            <constraint firstAttribute="bottom" secondItem="ep1-z2-Rui" secondAttribute="bottom" constant="20" symbolic="YES" id="WC9-24-HJ6"/>
+                            <constraint firstItem="MFC-e3-ovh" firstAttribute="leading" secondItem="TnR-7P-qts" secondAttribute="leading" id="XXe-s2-Ryq"/>
+                            <constraint firstItem="MFC-e3-ovh" firstAttribute="centerX" secondItem="Mgz-9o-CpF" secondAttribute="centerX" id="bUE-Lp-51y"/>
+                            <constraint firstItem="MFC-e3-ovh" firstAttribute="top" secondItem="90J-Zo-lLo" secondAttribute="bottom" id="nV2-SP-is5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="puppyDescriptionBox" destination="ep1-z2-Rui" id="0Xr-nd-F2Q"/>
+                        <outlet property="puppyImageView" destination="MFC-e3-ovh" id="W0a-pD-sC4"/>
+                        <outlet property="puppyKindLabel" destination="Mgz-9o-CpF" id="w4d-sp-lYK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXd-KZ-Q2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="645.60000000000002" y="459.22038980509751"/>
+        </scene>
+    </scenes>
+</document>
